@@ -268,4 +268,266 @@ export const globalStyles = StyleSheet.create({
     fontSize: 10,
     color: "#666",
   },
+
+  // ========== JADWAL RILIS NOVEL ==========
+
+  // Header Schedule
+  scheduleHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 10,
+  },
+  scheduleHeaderTitle: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  scheduleHeaderSubtitle: {
+    fontSize: 14,
+    color: "#666",
+    marginTop: 4,
+  },
+  scheduleAddButton: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: "#2200ff",
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#2200ff",
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+
+  // Filter
+  filterContainer: {
+    flexDirection: "row",
+    paddingHorizontal: 20,
+    gap: 10,
+    marginBottom: 16,
+  },
+  filterButton: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    backgroundColor: "#f5f5f5",
+  },
+  filterButtonActive: {
+    backgroundColor: "#2200ff",
+  },
+  filterText: {
+    fontSize: 14,
+    color: "#666",
+    fontWeight: "500",
+  },
+  filterTextActive: {
+    color: "#fff",
+  },
+
+  // Stats
+  releaseStats: {
+    flexDirection: "row",
+    backgroundColor: "#fff",
+    marginHorizontal: 20,
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: "#f0f0f0",
+  },
+  statItem: {
+    flex: 1,
+    alignItems: "center",
+  },
+  statValue: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  statLabel: {
+    fontSize: 11,
+    color: "#999",
+    marginTop: 2,
+  },
+  statDivider: {
+    width: 1,
+    backgroundColor: "#f0f0f0",
+    marginHorizontal: 8,
+  },
+
+  // Legend
+  legendContainer: {
+    flexDirection: "row",
+    paddingHorizontal: 20,
+    gap: 16,
+    marginBottom: 16,
+  },
+  legendItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  legendDot: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+  },
+
+  // Scroll Content
+  scheduleScrollContent: {
+    paddingHorizontal: 20,
+  },
+
+  // Day Card
+  dayCard: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: "#f0f0f0",
+    overflow: "hidden",
+  },
+  dayHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 16,
+    backgroundColor: "#fafafa",
+  },
+  dayName: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#333",
+  },
+  dayDate: {
+    fontSize: 12,
+    color: "#999",
+    marginTop: 2,
+  },
+  dayStats: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  statBadge: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    justifyContent: "center",
+    alignItems: "center",
+    marginLeft: 4,
+  },
+  statText: {
+    fontSize: 11,
+    fontWeight: "600",
+    color: "#fff",
+  },
+  dayContent: {
+    padding: 8,
+  },
+
+  // Release Item
+  releaseItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    padding: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: "#f5f5f5",
+    backgroundColor: "#fff",
+  },
+  releaseCover: {
+    width: 50,
+    height: 65,
+    borderRadius: 6,
+    backgroundColor: "#f5f5f5",
+    marginRight: 12,
+  },
+  releaseCoverPlaceholder: {
+    backgroundColor: "#f5f5f5",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  releaseInfo: {
+    flex: 1,
+    marginRight: 8,
+  },
+  releaseTitle: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#333",
+    marginBottom: 2,
+  },
+  releaseAuthor: {
+    fontSize: 12,
+    color: "#999",
+    marginBottom: 6,
+  },
+  releaseMeta: {
+    flexDirection: "row",
+    gap: 12,
+  },
+  releaseMetaItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+  },
+  releaseMetaText: {
+    fontSize: 11,
+    color: "#999",
+  },
+  statusBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 12,
+    minWidth: 65,
+    alignItems: "center",
+  },
+  statusText: {
+    fontSize: 10,
+    fontWeight: "600",
+    color: "#fff",
+  },
+  delayNote: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+    marginTop: 6,
+  },
+  delayNoteText: {
+    fontSize: 10,
+    color: "#FF9800",
+  },
+
+  // Empty State
+  emptyState: {
+    alignItems: "center",
+    padding: 40,
+  },
+  emptyStateTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#333",
+    marginTop: 16,
+  },
+  emptyStateText: {
+    fontSize: 14,
+    color: "#999",
+    textAlign: "center",
+    marginTop: 8,
+  },
+  emptyStateButton: {
+    backgroundColor: "#2200ff",
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 25,
+    marginTop: 20,
+  },
+  emptyStateButtonText: {
+    color: "#fff",
+    fontWeight: "600",
+  },
 });
