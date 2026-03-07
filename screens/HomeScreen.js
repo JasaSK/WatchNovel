@@ -27,21 +27,21 @@ const FEATURED_NOVELS = [
     title: "The Silent Patient",
     author: "Alex Michaelides",
     rating: 4.5,
-    image: "https://via.placeholder.com/150",
+    image: require("../assets/novel/novel1.jpg"),
   },
   {
     id: 2,
     title: "Where the Crawdads Sing",
     author: "Delia Owens",
     rating: 4.8,
-    image: "https://via.placeholder.com/150",
+    image: require("../assets/novel/novel2.jpg"),
   },
   {
     id: 3,
     title: "The Midnight Library",
     author: "Matt Haig",
     rating: 4.3,
-    image: "https://via.placeholder.com/150",
+    image: require("../assets/novel/novel3.jpg"),
   },
 ];
 
@@ -51,14 +51,14 @@ const RECOMMENDED_BOOKS = [
     title: "The Silent Patient",
     author: "Alex Michaelides",
     rating: 4.5,
-    image: "https://via.placeholder.com/100x140",
+    image: require("../assets/novel/novel5.jpg"),
   },
   {
     id: 2,
     title: "The Silent Patient",
     author: "Alex Michaelides",
     rating: 4.5,
-    image: "https://via.placeholder.com/100x140",
+    image: require("../assets/novel/novel6.jpg"),
   },
 ];
 
@@ -75,7 +75,7 @@ const CategoryItem = ({ item }) => (
 // Component untuk Novel Card
 const NovelCard = ({ item }) => (
   <TouchableOpacity style={globalStyles.novelCard}>
-    <Image source={{ uri: item.image }} style={globalStyles.novelImage} />
+    <Image source={item.image} style={globalStyles.novelImage} />
     <View style={globalStyles.novelInfo}>
       <Text style={globalStyles.novelTitle} numberOfLines={1}>
         {item.title}
@@ -92,7 +92,7 @@ const NovelCard = ({ item }) => (
 // Component untuk Recommended Card
 const RecommendedCard = ({ item }) => (
   <TouchableOpacity style={globalStyles.recommendedCard}>
-    <Image source={{ uri: item.image }} style={globalStyles.recommendedImage} />
+    <Image source={item.image} style={globalStyles.recommendedImage} />
     <Text style={globalStyles.recommendedTitle} numberOfLines={2}>
       {item.title}
     </Text>
@@ -190,7 +190,7 @@ export default function HomeScreen() {
         <SectionHeader title="Continue Reading" />
         <TouchableOpacity style={globalStyles.continueCard}>
           <Image
-            source={{ uri: "https://via.placeholder.com/80" }}
+            source={require("../assets/novel/novel4.jpg")}
             style={globalStyles.continueImage}
           />
           <View style={globalStyles.continueInfo}>
