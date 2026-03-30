@@ -30,7 +30,7 @@ export default function HomeScreen() {
       {/* HEADER */}
       <View style={globalStyles.header}>
         <Image
-          source={require("../assets/logo.png")}
+          source={require("../../assets/logo.png")}
           style={globalStyles.logo}
         />
 
@@ -103,7 +103,7 @@ export default function HomeScreen() {
 
         <TouchableOpacity style={globalStyles.continueCard}>
           <Image
-            source={require("../assets/novel/novel4.jpg")}
+            source={require("../../assets/novel/novel4.jpg")}
             style={globalStyles.continueImage}
           />
 
