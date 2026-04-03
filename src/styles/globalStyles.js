@@ -530,4 +530,250 @@ export const globalStyles = StyleSheet.create({
     color: "#fff",
     fontWeight: "600",
   },
+
+  // Add these to your existing globalStyles object
+
+  profileHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#f0f0f0",
+  },
+
+  backButton: {
+    padding: 5,
+  },
+
+  profileHeaderTitle: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#333",
+  },
+
+  editButton: {
+    padding: 5,
+  },
+
+  profileImageContainer: {
+    alignItems: "center",
+    paddingVertical: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: "#f0f0f0",
+  },
+
+  profileImageWrapper: {
+    position: "relative",
+    marginBottom: 12,
+  },
+
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+    borderWidth: 3,
+    borderColor: "#2200ff",
+  },
+
+  changePhotoButton: {
+    position: "absolute",
+    bottom: 0,
+    right: 0,
+    backgroundColor: "#2200ff",
+    borderRadius: 20,
+    padding: 8,
+  },
+
+  profileName: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 6,
+  },
+
+  profileBio: {
+    fontSize: 14,
+    color: "#666",
+    textAlign: "center",
+    paddingHorizontal: 40,
+    marginBottom: 8,
+  },
+
+  profileJoinDate: {
+    fontSize: 12,
+    color: "#999",
+  },
+
+  editFieldsContainer: {
+    width: "100%",
+    paddingHorizontal: 20,
+    marginTop: 16,
+  },
+
+  editActions: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 12,
+    gap: 12,
+  },
+
+  cancelButton: {
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    borderRadius: 8,
+    backgroundColor: "#f0f0f0",
+  },
+
+  cancelButtonText: {
+    color: "#666",
+    fontWeight: "500",
+  },
+
+  statsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    paddingVertical: 20,
+    backgroundColor: "#fff",
+    marginHorizontal: 16,
+    marginTop: 20,
+    borderRadius: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+
+  statCard: {
+    alignItems: "center",
+    flex: 1,
+  },
+
+  goalHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+
+  editGoalButton: {
+    padding: 4,
+  },
+
+  goalInputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    marginVertical: 8,
+  },
+
+  goalInput: {
+    borderWidth: 1,
+    borderColor: "#ddd",
+    borderRadius: 6,
+    padding: 6,
+    width: 60,
+    textAlign: "center",
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#333",
+  },
+
+  statNumber: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: "#333",
+    marginVertical: 6,
+  },
+
+  statLabel: {
+    fontSize: 12,
+    color: "#999",
+    textAlign: "center",
+  },
+
+  progressContainer: {
+    width: "80%",
+    height: 4,
+    backgroundColor: "#f0f0f0",
+    borderRadius: 2,
+    marginTop: 8,
+    overflow: "hidden",
+  },
+
+  progressFillStat: {
+    height: "100%",
+    backgroundColor: "#2200ff",
+    borderRadius: 2,
+  },
+
+  progressPercentage: {
+    fontSize: 11,
+    color: "#999",
+    marginTop: 4,
+  },
+
+  menuSection: {
+    marginTop: 20,
+    marginHorizontal: 16,
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    overflow: "hidden",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+
+  menuSectionTitle: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#333",
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 8,
+  },
+
+  menuItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+    backgroundColor: "#fff",
+  },
+
+  menuItemLeft: {
+    flexDirection: "row",
+    alignItems: "center",
+    flex: 1,
+    gap: 12,
+  },
+
+  menuItemTextContainer: {
+    flex: 1,
+  },
+
+  menuItemTitle: {
+    fontSize: 15,
+    color: "#333",
+    fontWeight: "500",
+  },
+
+  menuItemSubtitle: {
+    fontSize: 12,
+    color: "#999",
+    marginTop: 2,
+  },
+
+  menuItemDestructive: {
+    color: "#ff4444",
+  },
+
+  menuDivider: {
+    height: 1,
+    backgroundColor: "#f0f0f0",
+  },
 });
