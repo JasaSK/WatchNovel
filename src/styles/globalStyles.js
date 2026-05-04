@@ -776,4 +776,293 @@ export const globalStyles = StyleSheet.create({
     height: 1,
     backgroundColor: "#f0f0f0",
   },
+
+  // Tambahkan ke globalStyles.js
+  // History Screen Styles
+  historyHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderBottomColor: "#f0f0f0",
+  },
+  historyHeaderTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  clearButton: {
+    padding: 8,
+  },
+  historyCard: {
+    flexDirection: "row",
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  historyImage: {
+    width: 80,
+    height: 110,
+    borderRadius: 8,
+    marginRight: 12,
+  },
+  historyInfo: {
+    flex: 1,
+    justifyContent: "space-between",
+  },
+  historyTitleText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#333",
+    marginBottom: 4,
+  },
+  historyAuthor: {
+    fontSize: 13,
+    color: "#666",
+    marginBottom: 8,
+  },
+  historyProgressContainer: {
+    marginBottom: 8,
+  },
+  historyProgressBar: {
+    height: 4,
+    backgroundColor: "#f0f0f0",
+    borderRadius: 2,
+    overflow: "hidden",
+    marginBottom: 4,
+  },
+  historyProgressFill: {
+    height: "100%",
+    backgroundColor: "#2200ff",
+    borderRadius: 2,
+  },
+  historyProgressText: {
+    fontSize: 11,
+    color: "#666",
+  },
+  historyMeta: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 4,
+  },
+  historyMetaItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+  },
+  historyMetaText: {
+    fontSize: 11,
+    color: "#999",
+  },
+  historyContinueButton: {
+    justifyContent: "center",
+    alignItems: "center",
+    paddingLeft: 8,
+  },
+  emptySubText: {
+    fontSize: 14,
+    color: "#999",
+    textAlign: "center",
+    marginTop: 8,
+    marginBottom: 24,
+  },
+  emptyButton: {
+    backgroundColor: "#2200ff",
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 25,
+  },
+  emptyButtonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+
+  // Library Screen Styles
+  libraryHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderBottomColor: "#f0f0f0",
+    marginTop: 8,
+  },
+  libraryHeaderTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#333",
+  },
+  libraryViewButton: {
+    padding: 8,
+  },
+  librarySearchContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#f5f5f5",
+    marginHorizontal: 16,
+    marginTop: 16,
+    marginBottom: 12,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 12,
+    gap: 8,
+  },
+  librarySearchInput: {
+    flex: 1,
+    fontSize: 16,
+    color: "#333",
+    padding: 0,
+  },
+  libraryStatsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    marginHorizontal: 16,
+    marginVertical: 12,
+    paddingVertical: 12,
+    borderRadius: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  libraryStat: {
+    alignItems: "center",
+    flex: 1,
+  },
+  libraryStatNumber: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#2200ff",
+  },
+  libraryStatLabel: {
+    fontSize: 12,
+    color: "#666",
+    marginTop: 4,
+  },
+  libraryStatDivider: {
+    width: 1,
+    height: 30,
+    backgroundColor: "#f0f0f0",
+  },
+  libraryCategories: {
+    marginVertical: 8,
+  },
+  libraryCategoriesContent: {
+    paddingHorizontal: 12,
+    gap: 8,
+  },
+  libraryCategoryButton: {
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    borderRadius: 20,
+    backgroundColor: "#f5f5f5",
+    marginHorizontal: 4,
+  },
+  libraryCategoryButtonActive: {
+    backgroundColor: "#2200ff",
+  },
+  libraryCategoryText: {
+    fontSize: 14,
+    color: "#666",
+  },
+  libraryCategoryTextActive: {
+    color: "#fff",
+    fontWeight: "600",
+  },
+  // Card styles
+  libraryCard: {
+    flexDirection: "row",
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 12,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  libraryImage: {
+    width: 80,
+    height: 110,
+    borderRadius: 8,
+    marginRight: 12,
+  },
+  libraryInfo: {
+    flex: 1,
+    justifyContent: "space-between",
+  },
+  // Card header
+  libraryCardHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 4,
+  },
+  libraryTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#333",
+    flex: 1,
+  },
+  libraryActions: {
+    flexDirection: "row",
+    gap: 12,
+  },
+  libraryAuthor: {
+    fontSize: 13,
+    color: "#666",
+    marginBottom: 8,
+  },
+  // Card meta info
+  libraryMeta: {
+    flexDirection: "row",
+    gap: 12,
+    marginBottom: 8,
+  },
+  libraryMetaItem: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 4,
+  },
+  libraryMetaText: {
+    fontSize: 11,
+    color: "#999",
+  },
+  // Card progress
+  libraryProgressContainer: {
+    marginTop: 4,
+  },
+  libraryProgressBar: {
+    height: 4,
+    backgroundColor: "#f0f0f0",
+    borderRadius: 2,
+    overflow: "hidden",
+    marginBottom: 4,
+  },
+  libraryProgressFill: {
+    height: "100%",
+    backgroundColor: "#2200ff",
+    borderRadius: 2,
+  },
+  libraryProgressText: {
+    fontSize: 11,
+    color: "#666",
+  },
 });
+
