@@ -1,4 +1,5 @@
-import { View, Text, TouchableOpacity, Switch } from "react-native";
+// components/profile/MenuItem.js
+import { View, Text, TouchableOpacity, Switch, Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { globalStyles } from "../../styles/globalStyles";
 
@@ -6,31 +7,25 @@ export default function MenuItem({
   icon,
   title,
   subtitle,
-  onPress,
-  isToggle = false,
-  toggleValue = false,
+  isToggle,
+  toggleValue,
   onToggle,
-  isDestructive = false,
+  isDestructive
 }) {
   return (
-    <TouchableOpacity
-      style={globalStyles.menuItem}
-      onPress={isToggle ? undefined : onPress}
-      activeOpacity={isToggle ? 1 : 0.7}
-    >
+    <View style={globalStyles.menuItem}>
       <View style={globalStyles.menuItemLeft}>
         <Ionicons
           name={icon}
           size={24}
           color={isDestructive ? "#ff4444" : "#666"}
+          style={globalStyles.menuItemIcon}
         />
         <View style={globalStyles.menuItemTextContainer}>
-          <Text
-            style={[
-              globalStyles.menuItemTitle,
-              isDestructive && globalStyles.menuItemDestructive,
-            ]}
-          >
+          <Text style={[
+            globalStyles.menuItemTitle,
+            isDestructive && globalStyles.menuItemTitleDestructive
+          ]}>
             {title}
           </Text>
           {subtitle && (
@@ -43,12 +38,16 @@ export default function MenuItem({
         <Switch
           value={toggleValue}
           onValueChange={onToggle}
-          trackColor={{ false: "#ddd", true: "#2200ff" }}
-          thumbColor="#fff"
+          trackColor={{ false: "#e0e0e0", true: "#2200ff" }}
+          thumbColor={Platform.OS === 'ios' ? "#fff" : toggleValue ? "#fff" : "#f4f3f4"}
         />
       ) : (
-        <Ionicons name="chevron-forward-outline" size={20} color="#ccc" />
+        <Ionicons
+          name="chevron-forward"
+          size={20}
+          color={isDestructive ? "#ff4444" : "#ccc"}
+        />
       )}
-    </TouchableOpacity>
+    </View>
   );
 }

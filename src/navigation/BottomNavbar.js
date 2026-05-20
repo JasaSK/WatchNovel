@@ -33,18 +33,14 @@ export default function BottomNavbar() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         headerShown: false,
-
         tabBarIcon: ({ focused, color, size }) => {
           const iconName = focused
             ? icons[route.name][0]
             : icons[route.name][1];
-
           return <Ionicons name={iconName} size={size} color={color} />;
         },
-
         tabBarActiveTintColor: "#2200ff",
         tabBarInactiveTintColor: "gray",
-
         tabBarStyle: {
           position: "absolute",
           bottom: 0,
@@ -62,13 +58,11 @@ export default function BottomNavbar() {
           borderTopWidth: 1,
           borderTopColor: "rgba(34,0,255,0.1)",
         },
-
         tabBarLabelStyle: {
           fontSize: 10,
           fontWeight: "500",
           marginBottom: 5,
         },
-
         tabBarIconStyle: {
           marginTop: 5,
         },
@@ -79,7 +73,6 @@ export default function BottomNavbar() {
         component={HomeScreen}
         options={{ tabBarLabel: "Beranda" }}
       />
-
       <Tab.Screen
         name="Schedule"
         component={ScheduleScreen}
@@ -93,13 +86,11 @@ export default function BottomNavbar() {
           },
         }}
       />
-
       <Tab.Screen
         name="History"
         component={HistoryScreen}
         options={{ tabBarLabel: "Riwayat" }}
       />
-
       <Tab.Screen
         name="Library"
         component={LibraryScreen}
@@ -113,7 +104,6 @@ export default function BottomNavbar() {
           },
         }}
       />
-
       <Tab.Screen
         name="Profile"
         component={ProfileScreen}

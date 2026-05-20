@@ -736,20 +736,28 @@ export const globalStyles = StyleSheet.create({
     paddingBottom: 8,
   },
 
+  // styles/globalStyles.js - Tambahkan style berikut:
+
   menuItem: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
+    paddingVertical: 12,
     paddingHorizontal: 16,
-    paddingVertical: 14,
     backgroundColor: "#fff",
+    borderRadius: 12,
+    marginBottom: 4,
+    minHeight: 60, // Penting: memastikan area touch memadai
   },
 
   menuItemLeft: {
     flexDirection: "row",
     alignItems: "center",
     flex: 1,
-    gap: 12,
+  },
+
+  menuItemIcon: {
+    marginRight: 12,
   },
 
   menuItemTextContainer: {
@@ -757,19 +765,19 @@ export const globalStyles = StyleSheet.create({
   },
 
   menuItemTitle: {
-    fontSize: 15,
-    color: "#333",
+    fontSize: 16,
     fontWeight: "500",
+    color: "#333",
+    marginBottom: 2,
+  },
+
+  menuItemTitleDestructive: {
+    color: "#ff4444",
   },
 
   menuItemSubtitle: {
     fontSize: 12,
     color: "#999",
-    marginTop: 2,
-  },
-
-  menuItemDestructive: {
-    color: "#ff4444",
   },
 
   menuDivider: {
@@ -1063,6 +1071,160 @@ export const globalStyles = StyleSheet.create({
   libraryProgressText: {
     fontSize: 11,
     color: "#666",
+  },
+
+  inputBookHeader: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderBottomColor: "#f0f0f0",
+  },
+  inputBookTitle: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: "#333",
+  },
+  inputBookForm: {
+    flex: 1,
+    padding: 20,
+  },
+  formCard: {
+    backgroundColor: "#fff",
+    borderRadius: 16,
+    padding: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 10,
+    elevation: 3,
+  },
+  inputContainer: {
+    marginBottom: 20,
+  },
+  inputLabel: {
+    fontSize: 14,
+    fontWeight: "600",
+    color: "#333",
+    marginBottom: 8,
+  },
+  input: {
+    backgroundColor: "#f8f8f8",
+    borderRadius: 12,
+    paddingHorizontal: 15,
+    paddingVertical: 12,
+    fontSize: 16,
+    color: "#333",
+    borderWidth: 1,
+    borderColor: "#e0e0e0",
+  },
+  textArea: {
+    minHeight: 100,
+    textAlignVertical: "top",
+  },
+  rowContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 20,
+  },
+  halfField: {
+    flex: 1,
+    marginRight: 10,
+  },
+  pickerContainer: {
+    backgroundColor: "#f8f8f8",
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#e0e0e0",
+    overflow: "hidden",
+  },
+  genreScrollContainer: {
+    paddingHorizontal: 12,
+    paddingVertical: 10,
+  },
+  genreChip: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    backgroundColor: "#f0f0f0",
+    marginRight: 10,
+  },
+  genreChipActive: {
+    backgroundColor: "#2200ff",
+  },
+  genreChipText: {
+    fontSize: 14,
+    color: "#666",
+  },
+  genreChipTextActive: {
+    color: "#fff",
+  },
+  inputBookActions: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 20,
+    gap: 12,
+  },
+  cancelBookButton: {
+    flex: 1,
+    backgroundColor: "#f0f0f0",
+    paddingVertical: 14,
+    borderRadius: 12,
+    alignItems: "center",
+  },
+  cancelBookButtonText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#666",
+  },
+  submitBookButton: {
+    flex: 2,
+    backgroundColor: "#2200ff",
+    paddingVertical: 14,
+    borderRadius: 12,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 8,
+  },
+  submitBookButtonText: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#fff",
+  },
+  // styles/globalStyles.js - Tambahkan style berikut:
+
+  coverContainer: {
+    marginBottom: 20,
+  },
+  coverPicker: {
+    width: '100%',
+    height: 200,
+    backgroundColor: '#f5f5f5',
+    borderRadius: 12,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    borderStyle: 'dashed',
+  },
+  coverImage: {
+    width: '100%',
+    height: '100%',
+    resizeMode: 'cover',
+  },
+  coverPlaceholder: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fafafa',
+  },
+  coverPlaceholderText: {
+    marginTop: 10,
+    color: '#999',
+    fontSize: 14,
   },
 });
 

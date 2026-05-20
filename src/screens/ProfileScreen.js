@@ -15,7 +15,6 @@ import { globalStyles } from "../styles/globalStyles";
 import ProfileField from "../components/profile/ProfileField";
 import ProfileStats from "../components/profile/ProfileStats";
 import MenuItem from "../components/profile/MenuItem";
-
 import { animations, useScaleAnimation } from "../utils/animations";
 
 const AnimatedMenuItem = ({ item, index, onPress, onToggle }) => {
@@ -30,7 +29,6 @@ const AnimatedMenuItem = ({ item, index, onPress, onToggle }) => {
         animations.slideInLeft(translateX, 400, index * 50),
       ]).start();
     }, 600);
-
     return () => clearTimeout(timeout);
   }, [index]);
 
@@ -38,12 +36,7 @@ const AnimatedMenuItem = ({ item, index, onPress, onToggle }) => {
   const handlePressOut = () => scaleReset();
 
   return (
-    <Animated.View
-      style={{
-        transform: [{ translateX }, { scale }],
-        opacity,
-      }}
-    >
+    <Animated.View style={{ transform: [{ translateX }, { scale }], opacity }}>
       <TouchableOpacity
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
@@ -67,9 +60,10 @@ const AnimatedMenuItem = ({ item, index, onPress, onToggle }) => {
 const MENU_ITEMS = {
   main: [
     { id: 1, icon: "book-outline", title: "My Library", subtitle: "View all your books" },
-    { id: 2, icon: "heart-outline", title: "Favorites", subtitle: "Your saved novels" },
-    { id: 3, icon: "time-outline", title: "Reading History", subtitle: "Recently viewed novels" },
-    { id: 4, icon: "download-outline", title: "Downloads", subtitle: "Offline content" },
+    { id: 2, icon: "add-circle-outline", title: "Input Buku", subtitle: "Tambah data buku baru" },
+    { id: 3, icon: "heart-outline", title: "Favorites", subtitle: "Your saved novels" },
+    { id: 4, icon: "time-outline", title: "Reading History", subtitle: "Recently viewed novels" },
+    { id: 5, icon: "download-outline", title: "Downloads", subtitle: "Offline content" },
   ],
   preferences: [
     { id: 6, icon: "moon-outline", title: "Dark Mode", isToggle: true },
@@ -166,6 +160,39 @@ export default function ProfileScreen({ navigation }) {
       ]).start();
     }, 600);
   }, []);
+
+  // Fungsi navigasi yang terpisah
+  const handleNavigation = (itemTitle) => {
+    console.log("Navigating to:", itemTitle);
+
+    switch (itemTitle) {
+      case "Input Buku":
+        const stackNav = navigation.getParent();
+        if (stackNav) {
+          stackNav.navigate("InputBook");
+        } else {
+          Alert.alert("Error", "Cannot navigate to Input Book");
+        }
+        break;
+
+      case "My Library":
+        navigation.getParent()?.navigate("MainTabs", {
+          screen: "Library",
+        });
+        break;
+
+      case "Logout":
+        handleLogout();
+        break;
+
+      case "Delete Account":
+        handleDeleteAccount();
+        break;
+
+      default:
+        Alert.alert(itemTitle, `Navigate to ${itemTitle.toLowerCase()}`);
+    }
+  };
 
   const handleEdit = () => {
     const animateButton = () => {
@@ -324,13 +351,7 @@ export default function ProfileScreen({ navigation }) {
                     : undefined,
             }}
             index={startIndex + idx}
-            onPress={
-              item.title === "Logout"
-                ? handleLogout
-                : item.title === "Delete Account"
-                  ? handleDeleteAccount
-                  : () => Alert.alert(item.title, `Navigate to ${item.title.toLowerCase()}`)
-            }
+            onPress={() => handleNavigation(item.title)}
           />
         ))}
       </>
