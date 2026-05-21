@@ -15,15 +15,23 @@ import { useState, useRef, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import * as ImagePicker from "expo-image-picker";
 import { globalStyles } from "../styles/globalStyles";
+import { addBook, updateBook } from "../services/BookService";
 
-export default function InputBookScreen({ navigation }) {
-    const [bookData, setBookData] = useState({
-        title: "",
-        author: "",
-        description: "",
-        cover: null,
-        category: "",
+export default function InputBookScreen({ navigation, route }) {
+    const { mode, bookData } = route.params || { mode: 'add', bookData: null };
+    const isEditMode = mode === 'edit';
+
+    const [formData, setFormData] = useState({
+        id: bookData?.id || null,
+        title: bookData?.title || "",
+        author: bookData?.author || "",
+        description: bookData?.description || "",
+        cover: bookData?.cover || null,
+        category: bookData?.category || "",
+        rating: bookData?.rating || 4,
     });
+
+    const [loading, setLoading] = useState(false);
 
     const animations = {
         container: {
@@ -73,7 +81,7 @@ export default function InputBookScreen({ navigation }) {
     }, []);
 
     const handleInputChange = (field, value) => {
-        setBookData((prev) => ({ ...prev, [field]: value }));
+        setFormData((prev) => ({ ...prev, [field]: value }));
     };
 
     const pickImage = async () => {
@@ -85,7 +93,7 @@ export default function InputBookScreen({ navigation }) {
         });
 
         if (!result.canceled) {
-            setBookData((prev) => ({ ...prev, cover: result.assets[0].uri }));
+            setFormData((prev) => ({ ...prev, cover: result.assets[0].uri }));
         }
     };
 
@@ -103,7 +111,7 @@ export default function InputBookScreen({ navigation }) {
         });
 
         if (!result.canceled) {
-            setBookData((prev) => ({ ...prev, cover: result.assets[0].uri }));
+            setFormData((prev) => ({ ...prev, cover: result.assets[0].uri }));
         }
     };
 
@@ -135,38 +143,74 @@ export default function InputBookScreen({ navigation }) {
         ]).start();
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         animateButton();
 
-        if (!bookData.title) {
+        if (!formData.title) {
             Alert.alert("Error", "Mohon isi nama buku");
             return;
         }
 
-        if (!bookData.author) {
+        if (!formData.author) {
             Alert.alert("Error", "Mohon isi nama penulis");
             return;
         }
 
-        Alert.alert(
-            "Sukses",
-            `Buku "${bookData.title}" berhasil ditambahkan!`,
-            [
-                {
-                    text: "OK",
-                    onPress: () => {
-                        setBookData({
-                            title: "",
-                            author: "",
-                            description: "",
-                            cover: null,
-                            category: "",
-                        });
-                        navigation.goBack();
+        setLoading(true);
+
+        try {
+            if (isEditMode) {
+                // Update buku yang sudah ada
+                await updateBook(formData.id, {
+                    title: formData.title,
+                    author: formData.author,
+                    description: formData.description,
+                    cover: formData.cover,
+                    category: formData.category,
+                    rating: formData.rating,
+                });
+
+                Alert.alert("Sukses", `Buku "${formData.title}" berhasil diperbarui!`, [
+                    {
+                        text: "OK",
+                        onPress: () => navigation.goBack(),
                     },
-                },
-            ]
-        );
+                ]);
+            } else {
+                // Tambah buku baru
+                await addBook({
+                    title: formData.title,
+                    author: formData.author,
+                    description: formData.description,
+                    cover: formData.cover,
+                    category: formData.category,
+                    rating: formData.rating,
+                });
+
+                Alert.alert("Sukses", `Buku "${formData.title}" berhasil ditambahkan!`, [
+                    {
+                        text: "OK",
+                        onPress: () => {
+                            setFormData({
+                                id: null,
+                                title: "",
+                                author: "",
+                                description: "",
+                                cover: null,
+                                category: "",
+                                rating: 4,
+                            });
+                            navigation.goBack();
+                        },
+                    },
+                ]);
+            }
+        } catch (error) {
+            console.error("Error saving book:", error);
+            Alert.alert("Error", isEditMode ? "Gagal memperbarui buku" : "Gagal menambahkan buku");
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleCancel = () => {
@@ -227,7 +271,9 @@ export default function InputBookScreen({ navigation }) {
                     >
                         <Ionicons name="close-outline" size={28} color="#333" />
                     </TouchableOpacity>
-                    <Text style={globalStyles.inputBookTitle}>Tambah Buku Baru</Text>
+                    <Text style={globalStyles.inputBookTitle}>
+                        {isEditMode ? "Edit Buku" : "Tambah Buku Baru"}
+                    </Text>
                     <View style={{ width: 40 }} />
                 </Animated.View>
 
@@ -248,9 +294,9 @@ export default function InputBookScreen({ navigation }) {
                                 style={globalStyles.coverPicker}
                                 onPress={showImagePickerOptions}
                             >
-                                {bookData.cover ? (
+                                {formData.cover ? (
                                     <Image
-                                        source={{ uri: bookData.cover }}
+                                        source={{ uri: formData.cover }}
                                         style={globalStyles.coverImage}
                                     />
                                 ) : (
@@ -273,8 +319,9 @@ export default function InputBookScreen({ navigation }) {
                                 style={globalStyles.input}
                                 placeholder="Masukkan nama buku"
                                 placeholderTextColor="#999"
-                                value={bookData.title}
+                                value={formData.title}
                                 onChangeText={(text) => handleInputChange("title", text)}
+                                editable={!loading}
                             />
                         </View>
 
@@ -287,9 +334,30 @@ export default function InputBookScreen({ navigation }) {
                                 style={globalStyles.input}
                                 placeholder="Masukkan nama penulis"
                                 placeholderTextColor="#999"
-                                value={bookData.author}
+                                value={formData.author}
                                 onChangeText={(text) => handleInputChange("author", text)}
+                                editable={!loading}
                             />
+                        </View>
+
+                        {/* Rating Buku */}
+                        <View style={globalStyles.inputContainer}>
+                            <Text style={globalStyles.inputLabel}>Rating Buku</Text>
+                            <View style={globalStyles.ratingContainer}>
+                                {[1, 2, 3, 4, 5].map((star) => (
+                                    <TouchableOpacity
+                                        key={star}
+                                        onPress={() => handleInputChange("rating", star)}
+                                        disabled={loading}
+                                    >
+                                        <Ionicons
+                                            name={star <= formData.rating ? "star" : "star-outline"}
+                                            size={32}
+                                            color={star <= formData.rating ? "#FFB800" : "#ccc"}
+                                        />
+                                    </TouchableOpacity>
+                                ))}
+                            </View>
                         </View>
 
                         {/* Kategori Buku */}
@@ -303,14 +371,15 @@ export default function InputBookScreen({ navigation }) {
                                                 key={category}
                                                 style={[
                                                     globalStyles.genreChip,
-                                                    bookData.category === category && globalStyles.genreChipActive,
+                                                    formData.category === category && globalStyles.genreChipActive,
                                                 ]}
                                                 onPress={() => handleInputChange("category", category)}
+                                                disabled={loading}
                                             >
                                                 <Text
                                                     style={[
                                                         globalStyles.genreChipText,
-                                                        bookData.category === category &&
+                                                        formData.category === category &&
                                                         globalStyles.genreChipTextActive,
                                                     ]}
                                                 >
@@ -330,11 +399,12 @@ export default function InputBookScreen({ navigation }) {
                                 style={[globalStyles.input, globalStyles.textArea]}
                                 placeholder="Masukkan deskripsi buku"
                                 placeholderTextColor="#999"
-                                value={bookData.description}
+                                value={formData.description}
                                 onChangeText={(text) => handleInputChange("description", text)}
                                 multiline
                                 numberOfLines={4}
                                 textAlignVertical="top"
+                                editable={!loading}
                             />
                         </View>
 
@@ -342,6 +412,7 @@ export default function InputBookScreen({ navigation }) {
                             <TouchableOpacity
                                 style={globalStyles.cancelBookButton}
                                 onPress={handleCancel}
+                                disabled={loading}
                             >
                                 <Text style={globalStyles.cancelBookButtonText}>Batal</Text>
                             </TouchableOpacity>
@@ -350,12 +421,21 @@ export default function InputBookScreen({ navigation }) {
                                 style={{ transform: [{ scale: animations.buttonScale }], flex: 2 }}
                             >
                                 <TouchableOpacity
-                                    style={globalStyles.submitBookButton}
+                                    style={[globalStyles.submitBookButton, loading && { opacity: 0.7 }]}
                                     onPress={handleSubmit}
+                                    disabled={loading}
                                 >
-                                    <Ionicons name="add-circle-outline" size={24} color="#fff" />
+                                    {loading ? (
+                                        <Ionicons name="reload-outline" size={24} color="#fff" />
+                                    ) : (
+                                        <Ionicons
+                                            name={isEditMode ? "save-outline" : "add-circle-outline"}
+                                            size={24}
+                                            color="#fff"
+                                        />
+                                    )}
                                     <Text style={globalStyles.submitBookButtonText}>
-                                        Simpan Buku
+                                        {loading ? "Memproses..." : (isEditMode ? "Update Buku" : "Simpan Buku")}
                                     </Text>
                                 </TouchableOpacity>
                             </Animated.View>

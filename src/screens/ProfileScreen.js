@@ -60,7 +60,7 @@ const AnimatedMenuItem = ({ item, index, onPress, onToggle }) => {
 const MENU_ITEMS = {
   main: [
     { id: 1, icon: "book-outline", title: "My Library", subtitle: "View all your books" },
-    { id: 2, icon: "add-circle-outline", title: "Input Buku", subtitle: "Tambah data buku baru" },
+    { id: 2, icon: "add-circle-outline", title: "List Buku", subtitle: "Data buku" },
     { id: 3, icon: "heart-outline", title: "Favorites", subtitle: "Your saved novels" },
     { id: 4, icon: "time-outline", title: "Reading History", subtitle: "Recently viewed novels" },
     { id: 5, icon: "download-outline", title: "Downloads", subtitle: "Offline content" },
@@ -166,12 +166,12 @@ export default function ProfileScreen({ navigation }) {
     console.log("Navigating to:", itemTitle);
 
     switch (itemTitle) {
-      case "Input Buku":
+      case "List Buku":
         const stackNav = navigation.getParent();
         if (stackNav) {
-          stackNav.navigate("InputBook");
+          stackNav.navigate("BookList");
         } else {
-          Alert.alert("Error", "Cannot navigate to Input Book");
+          Alert.alert("Error", "Cannot navigate to List Book");
         }
         break;
 

@@ -1195,6 +1195,7 @@ export const globalStyles = StyleSheet.create({
     fontWeight: "600",
     color: "#fff",
   },
+
   // styles/globalStyles.js - Tambahkan style berikut:
 
   coverContainer: {
@@ -1226,5 +1227,292 @@ export const globalStyles = StyleSheet.create({
     color: '#999',
     fontSize: 14,
   },
+  newContainer: {
+    flex: 1,
+    backgroundColor: '#f8f9fa',
+  },
+
+  newHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingTop: 20,
+    paddingBottom: 15,
+    backgroundColor: '#fff',
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 10,
+    elevation: 3,
+  },
+
+  newHeaderTitle: {
+    fontSize: 28,
+    fontWeight: '800',
+    color: '#1a1a2e',
+    letterSpacing: -0.5,
+  },
+
+  newHeaderSubtitle: {
+    fontSize: 13,
+    color: '#666',
+    marginTop: 4,
+  },
+
+  newAddButton: {
+    backgroundColor: '#2200ff',
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#2200ff',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+
+  newSearchWrapper: {
+    paddingHorizontal: 20,
+    paddingTop: 15,
+    paddingBottom: 5,
+  },
+
+  newSearchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 15,
+    paddingHorizontal: 15,
+    paddingVertical: 12,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    elevation: 2,
+  },
+
+  newSearchContainerFocused: {
+    borderColor: '#2200ff',
+    borderWidth: 2,
+    shadowColor: '#2200ff',
+    shadowOpacity: 0.1,
+  },
+
+  newSearchInput: {
+    flex: 1,
+    marginLeft: 10,
+    fontSize: 16,
+    color: '#333',
+    padding: 0,
+  },
+
+  newCategoryContainer: {
+    marginTop: 10,
+    marginBottom: 5,
+  },
+
+  newCategoryScroll: {
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+  },
+
+  newFilterChip: {
+    paddingHorizontal: 18,
+    paddingVertical: 8,
+    borderRadius: 20,
+    backgroundColor: '#fff',
+    marginRight: 10,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+  },
+
+  newFilterChipActive: {
+    backgroundColor: '#2200ff',
+    borderColor: '#2200ff',
+  },
+
+  newFilterChipText: {
+    fontSize: 14,
+    color: '#666',
+    fontWeight: '500',
+  },
+
+  newFilterChipTextActive: {
+    color: '#fff',
+  },
+
+  newBookCard: {
+    marginHorizontal: 20,
+    marginBottom: 15,
+    backgroundColor: '#fff',
+    borderRadius: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 12,
+    elevation: 4,
+  },
+
+  newBookCardContent: {
+    flexDirection: 'row',
+    padding: 15,
+  },
+
+  newBookCoverContainer: {
+    marginRight: 15,
+  },
+
+  newBookThumbnail: {
+    width: 90,
+    height: 120,
+    borderRadius: 12,
+    backgroundColor: '#f0f0f0',
+  },
+
+  newBookCoverPlaceholder: {
+    width: 90,
+    height: 120,
+    borderRadius: 12,
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+    borderStyle: 'dashed',
+  },
+
+  newBookInfo: {
+    flex: 1,
+  },
+
+  newBookTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: '#1a1a2e',
+    marginBottom: 4,
+  },
+
+  newBookAuthor: {
+    fontSize: 13,
+    color: '#666',
+    marginBottom: 6,
+  },
+
+  newBookRating: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 6,
+    gap: 4,
+  },
+
+  newBookRatingText: {
+    fontSize: 12,
+    color: '#FFB800',
+    marginLeft: 4,
+    fontWeight: '600',
+  },
+
+  newBookCategoryBadge: {
+    backgroundColor: '#f0f0ff',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+    alignSelf: 'flex-start',
+    marginBottom: 8,
+  },
+
+  newBookCategoryText: {
+    fontSize: 11,
+    color: '#2200ff',
+    fontWeight: '600',
+  },
+
+  newBookDescription: {
+    fontSize: 12,
+    color: '#888',
+    lineHeight: 16,
+  },
+
+  newDeleteButton: {
+    padding: 8,
+  },
+
+  newBookList: {
+    paddingBottom: 100,
+    paddingTop: 5,
+  },
+
+  newEmptyState: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 40,
+    marginTop: 100,
+  },
+
+  newEmptyStateIcon: {
+    marginBottom: 20,
+  },
+
+  newEmptyStateText: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#333',
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+
+  newEmptyStateSubtext: {
+    fontSize: 14,
+    color: '#999',
+    textAlign: 'center',
+    marginBottom: 25,
+  },
+
+  newEmptyStateButton: {
+    flexDirection: 'row',
+    backgroundColor: '#2200ff',
+    paddingHorizontal: 24,
+    paddingVertical: 12,
+    borderRadius: 25,
+    alignItems: 'center',
+    gap: 8,
+    shadowColor: '#2200ff',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+
+  newEmptyStateButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+
+  newFabButton: {
+    position: 'absolute',
+    bottom: 20,
+    right: 20,
+    backgroundColor: '#2200ff',
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#2200ff',
+    shadowOffset: { width: 0, height: 6 },
+    shadowOpacity: 0.4,
+    shadowRadius: 12,
+    elevation: 8,
+  },
+
 });
 
